@@ -4,6 +4,7 @@ const cors = require("cors");
 const connectDB = require("./config/db");
 
 const rockRoutes = require("./routes/rockRoutes");
+const postRoutes = require("./routes/postRoutes");
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/rocks", rockRoutes); // <- all rock routes live under /api/rocks
+app.use("/api/posts", postRoutes); // <- all post routes live under /api/posts
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
